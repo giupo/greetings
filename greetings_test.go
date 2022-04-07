@@ -9,7 +9,18 @@ import (
 func TestHelloName(t *testing.T) {
   name := "Gladys"
   expected := "Hello, Gladys!"
-  if Hello(name) != expected {
+  message, _ := Hello(name)
+
+  if message != expected {
     t.Errorf("Hello(%v) != %v", name, expected)
+  }
+}
+
+
+func TestHelloError(t *testing.T) {
+  _, err := Hello("")
+
+  if err == nil {
+    t.Errorf("Hello doesn't raise an error with empty name")
   }
 }
