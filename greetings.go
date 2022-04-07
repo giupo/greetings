@@ -5,6 +5,7 @@ import (
   "errors"
   "math/rand"
   "time"
+  "log"
 )
 
 func Hello(name string) (string, error) {
@@ -18,7 +19,10 @@ func Hello(name string) (string, error) {
 
 
 func init() {
+  log.SetPrefix("greetings: ")
+  log.SetFlags(0)
   rand.Seed(time.Now().UnixNano())
+  log.Println("init")
 }
 
 
