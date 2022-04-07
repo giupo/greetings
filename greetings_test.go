@@ -2,17 +2,17 @@ package greetings
 
 import (
   "testing"
+  "strings"
 )
 
 // TestHelloName calls greetings.Hello with a name, checking
 // for a valid return value.
-func TestHelloName(t *testing.T) {
+func TestHelloContainsName(t *testing.T) {
   name := "Gladys"
-  expected := "Hello, Gladys!"
   message, _ := Hello(name)
 
-  if message != expected {
-    t.Errorf("Hello(%v) != %v", name, expected)
+  if !strings.Contains(message, name) {
+    t.Errorf("Hello(%v) doesn't contain", name)
   }
 }
 
